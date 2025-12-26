@@ -1,57 +1,192 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>Lokasi | A‑Mart Katapang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lokasi A‑Mart Katapang dengan peta Google Maps dan petunjuk arah akurat.">
-  <link rel="canonical" href="https://example.com/lokasi.html">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A-Mart Katapang - Mini Market lengkap dengan harga terjangkau, produk segar, dan pelayanan terbaik di daerah Katapang.">
+    <title>A-Mart Katapang - Lokasi Kami</title>
+    
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elegant-colors.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    
+    <!-- CSS Khusus Lokasi -->
+    <link rel="stylesheet" href="css/location.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-inner container">
-      <div class="header-left"><img src="assets/img/logo.png" alt="Logo A‑Mart Katapang" class="logo"></div>
-      <div class="header-center"><h1>Lokasi A‑Mart Katapang</h1></div>
-      <div class="header-right"><div id="clock">--:--</div></div>
-    </div>
-    <nav class="top-nav container">
-      <a href="index.html">Beranda</a>
-      <a href="lokasi.html" class="active">Lokasi</a>
-      <a href="katalog.html">Katalog</a>
-      <a href="saran-donasi.html">Saran & Donasi</a>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo" 
+                 onerror="this.src='https://via.placeholder.com/60x60?text=Logo'">
+        </div>
+        <div class="title">
+            <h1>A-Mart Katapang</h1>
+            <p>Segar, Lengkap, Terjangkau</p>
+        </div>
+        <div class="live-time" id="liveTime">
+            <!-- Waktu akan diisi oleh JS -->
+        </div>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="location.html" class="active">Lokasi</a></li>
+            <li><a href="catalog.html">Katalog & Belanja</a></li>
+            <li><a href="feedback.html">Saran & Donasi</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Promo Atas Peta</h2>
-      <div class="ad-grid">
-        <div class="ad-slot large">[Iklan 1]</div>
-        <div class="ad-slot large">[Iklan 2]</div>
-        <div class="ad-slot large">[Iklan 3]</div>
-      </div>
+    <!-- TOMBOL KONTROL -->
+    <section class="location-controls">
+        <a href="index.html" class="btn-home">
+            <i class="fas fa-home"></i>
+            <span>Kembali ke Beranda</span>
+        </a>
+        
+        <button class="btn-navigate" id="openMapsBtn">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Buka di Google Maps</span>
+        </button>
     </section>
 
-    <section class="card">
-      <h2>Petunjuk Arah</h2>
-      <!-- Ganti koordinat sesuai lokasi tepat kamu -->
-      <div class="map-wrap">
-        <iframe
-          title="Google Maps A‑Mart Katapang"
-          src="https://www.google.com/maps?q=-6.991,107.555&z=17&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-      <p><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=-6.991,107.555" target="_blank" rel="noopener">Buka di Google Maps</a></p>
-    </section>
-  </main>
+    <!-- KONTEN UTAMA -->
+    <main>
+        <section class="maps-section">
+            <h2>📍 Lokasi A-Mart Katapang</h2>
+            
+            <div class="maps-container">
+                <!-- Google Maps Embed -->
+                <h3>Peta Lokasi</h3>
+                <iframe 
+                    class="maps-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.783965156207!2d107.5502662749727!3d-6.934952993058103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ef65f5c3d9a1%3A0x6cf882b7d0a60b8d!2sA%20Mart!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Peta Lokasi A-Mart Katapang">
+                </iframe>
+                
+                <!-- Informasi Lokasi -->
+                <div class="location-info">
+                    <h3>📌 Informasi Lengkap</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <h4>Alamat Lengkap</h4>
+                                <p>Bojong Salak No.1, RT.1/RW.21, Cilampeni, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921
 
-  <footer class="site-footer">
-    <p>© 2025 A‑Mart Katapang</p>
-  </footer>
+62811-1112-0670</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Jam Operasional</h4>
+                                <p>Senin - Minggu: 06:00 - 22:00 WIB</p>
+                                <p>Buka Setiap Hari</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Kontak</h4>
+                                <p>Telp: 0811-1112-0670</p>
+                                <p>WhatsApp: 0811-1112-0670</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div>
+                                <h4>Koordinat GPS</h4>
+                                <p>Latitude: -6.934952</p>
+                                <p>Longitude: 107.552441</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Transportasi -->
+                <div class="transportation">
+                    <h3>🚗 Akses Transportasi</h3>
+                    <p>Mudah dijangkau dengan berbagai transportasi:</p>
+                    
+                    <div class="transport-icons">
+                        <div class="transport-icon">
+                            <i class="fas fa-car"></i>
+                            <span>Mobil</span>
+                        </div>
+                        <div class="transport-icon">
+                            <i class="fas fa-motorcycle"></i>
+                            <span>Motor</span>
+                        </div>
+                        <div class="transport-icon">
+                            <i class="fas fa-bus"></i>
+                            <span>Angkot</span>
+                        </div>
+                        <div class="transport-icon">
+                            <i class="fas fa-taxi"></i>
+                            <span>Taxi/Online</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tombol Aksi -->
+                <div class="action-buttons">
+                    <button class="action-btn btn-route" id="getDirectionsBtn">
+                        <i class="fas fa-route"></i>
+                        Dapatkan Rute
+                    </button>
+                    
+                    <button class="action-btn btn-call" id="callStoreBtn">
+                        <i class="fas fa-phone"></i>
+                        Telepon Toko
+                    </button>
+                    
+                    <button class="action-btn btn-share" id="shareLocationBtn">
+                        <i class="fas fa-share-alt"></i>
+                        Bagikan Lokasi
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script src="assets/js/clock.js"></script>
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="social-media">
+            <a href="#"><img src="assets/icons/facebook.svg" alt="Facebook" 
+                onerror="this.src='https://cdn-icons-png.flaticon.com/512/124/124010.png'"></a>
+            <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"
+                onerror="this.src='https://cdn-icons-png.flaticon.com/512/2111/2111463.png'"></a>
+            <a href="#"><img src="assets/icons/whatsapp.svg" alt="WhatsApp"
+                onerror="this.src='https://cdn-icons-png.flaticon.com/512/124/124034.png'"></a>
+        </div>
+        <p>&copy; <span id="currentYear">2025</span> A-Mart Katapang. Semua hak dilindungi.</p>
+        <p>Dibuat dengan ❤️ untuk masyarakat Kopo, Kab. Bandung dan sekitarnya</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/datetime.js"></script>      <!-- Waktu live global -->
+    <script src="js/location.js"></script>      <!-- JS khusus lokasi -->
+    
+    <!-- Inline kecil untuk current year -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
