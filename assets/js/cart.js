@@ -81,7 +81,7 @@ const Cart = {
     const lines = this.items.map(i => `- ${i.name} x${i.qty} = Rp ${i.total.toLocaleString('id-ID')}`);
     const total = this.items.reduce((a,b)=> a + b.total, 0);
     const text = encodeURIComponent(
-      `Halo A‑Mart, saya ingin checkout:\n${lines.join('\n')}\nTotal: Rp ${total.toLocaleString('id-ID')}`
+      `Assalamu'alaikum... Halo Kakak-Kakak Amanda Mart Katapang, Aku mau checkout:\n${lines.join('\n')}\nTotal: Rp ${total.toLocaleString('id-ID')}`
     );
     const phone = '6281389188903'; // ganti ke nomor WA admin
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
