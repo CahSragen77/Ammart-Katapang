@@ -1,0 +1,618 @@
+/* location.css - CSS khusus untuk halaman lokasi A-Mart Katapang */
+
+/* ==================== */
+/* LOCATION CONTROLS */
+/* ==================== */
+.location-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto 3rem;
+    max-width: 1200px;
+    padding: 0 1rem;
+    gap: 1.5rem;
+}
+
+.btn-home, .btn-navigate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-normal);
+    text-decoration: none;
+    min-height: 56px;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-home {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    flex: 1;
+    max-width: 280px;
+}
+
+.btn-navigate {
+    background: var(--gradient-accent);
+    color: var(--color-white);
+    flex: 2;
+    font-size: 1.15rem;
+}
+
+.btn-home:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-navigate:hover {
+    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent-light) 100%);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-home i, .btn-navigate i {
+    font-size: 1.4rem;
+    transition: transform 0.3s;
+}
+
+.btn-home:hover i {
+    transform: translateX(-5px);
+}
+
+.btn-navigate:hover i {
+    transform: scale(1.1);
+}
+
+/* ==================== */
+/* MAPS SECTION */
+/* ==================== */
+.maps-section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+}
+
+.maps-section h2 {
+    color: var(--color-secondary);
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.maps-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.maps-container {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    margin-top: 2rem;
+    border: 1px solid rgba(42, 157, 143, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.maps-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.maps-section h3 {
+    color: var(--color-primary);
+    margin: 2rem 0 1.5rem;
+    padding-left: 1.2rem;
+    border-left: 5px solid var(--color-accent);
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.maps-section h3:first-of-type {
+    margin-top: 0;
+}
+
+.maps-iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-primary-soft);
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s;
+}
+
+.maps-iframe:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+/* ==================== */
+/* LOCATION INFO */
+/* ==================== */
+.location-info {
+    background: var(--gradient-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 6px solid var(--color-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.location-info::before {
+    content: '📌';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 1.2rem;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+}
+
+.info-item i {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.info-item-content {
+    flex: 1;
+}
+
+.info-item h4 {
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    color: var(--color-neutral);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ==================== */
+/* TRANSPORTATION */
+/* ==================== */
+.transportation {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border: 2px solid var(--color-primary-soft);
+    text-align: center;
+}
+
+.transportation h3 {
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.transportation h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.transport-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.transport-icon {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-soft);
+    min-width: 140px;
+    transition: all 0.3s var(--transition-normal);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.transport-icon:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: var(--color-white);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.transport-icon i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.transport-icon:hover i {
+    transform: scale(1.2);
+    color: var(--color-primary-dark);
+}
+
+.transport-icon span {
+    display: block;
+    font-weight: 600;
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+}
+
+/* ==================== */
+/* ACTION BUTTONS */
+/* ==================== */
+.action-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin: 3rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    flex: 1;
+    min-width: 220px;
+    padding: 1.2rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s var(--transition-normal);
+    font-size: 1.05rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.action-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-route {
+    background: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-call {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-share {
+    background: var(--color-neutral-soft);
+    color: var(--color-secondary);
+    border: 2px solid var(--color-primary-light);
+}
+
+.action-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-route:hover { 
+    background: var(--color-secondary-dark);
+}
+
+.btn-call:hover { 
+    background: var(--color-primary-dark);
+}
+
+.btn-share:hover { 
+    background: var(--color-primary-light);
+    color: var(--color-white);
+}
+
+.action-btn i {
+    font-size: 1.3rem;
+    transition: transform 0.3s;
+}
+
+.action-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* ==================== */
+/* RESPONSIVE DESIGN */
+/* ==================== */
+
+/* TABLET (768px - 1023px) */
+@media (max-width: 1023px) {
+    .location-controls {
+        flex-direction: column;
+    }
+    
+    .btn-home, .btn-navigate {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .maps-iframe {
+        height: 400px;
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .transport-icons {
+        gap: 1.5rem;
+    }
+    
+    .transport-icon {
+        min-width: 120px;
+        padding: 1.2rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+/* TABLET KECIL (481px - 767px) */
+@media (max-width: 767px) {
+    .maps-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .maps-container {
+        padding: 1.5rem;
+    }
+    
+    .maps-iframe {
+        height: 350px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .transport-icons {
+        gap: 1rem;
+    }
+    
+    .transport-icon {
+        min-width: 110px;
+        padding: 1rem;
+    }
+    
+    .transport-icon i {
+        font-size: 2rem;
+    }
+    
+    .btn-home, .btn-navigate {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+}
+
+/* MOBILE (480px ke bawah) */
+@media (max-width: 480px) {
+    .maps-section {
+        padding: 0 0.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .maps-section h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    .maps-section h2::after {
+        width: 80px;
+        height: 3px;
+    }
+    
+    .maps-iframe {
+        height: 280px;
+    }
+    
+    .location-info,
+    .transportation {
+        padding: 1.2rem;
+    }
+    
+    .info-item {
+        padding: 1rem;
+        gap: 12px;
+    }
+    
+    .info-item i {
+        font-size: 1.5rem;
+    }
+    
+    .info-item h4 {
+        font-size: 1rem;
+    }
+    
+    .transport-icons {
+        gap: 0.8rem;
+    }
+    
+    .transport-icon {
+        min-width: 90px;
+        padding: 0.8rem;
+    }
+    
+    .transport-icon i {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .transport-icon span {
+        font-size: 0.9rem;
+    }
+    
+    .action-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* MOBILE SANGAT KECIL (360px ke bawah) */
+@media (max-width: 360px) {
+    .maps-iframe {
+        height: 250px;
+    }
+    
+    .btn-home, .btn-navigate {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        min-height: 45px;
+    }
+    
+    .btn-home i, .btn-navigate i {
+        font-size: 1.2rem;
+    }
+    
+    .transport-icon {
+        min-width: 80px;
+        padding: 0.7rem;
+    }
+    
+    .transport-icon i {
+        font-size: 1.6rem;
+    }
+    
+    .maps-section h3 {
+        font-size: 1.2rem;
+        padding-left: 0.8rem;
+    }
+}
+
+/* LANDSCAPE MODE */
+@media (max-height: 600px) and (orientation: landscape) {
+    .maps-iframe {
+        height: 300px;
+    }
+    
+    .location-controls {
+        margin: 1rem auto 2rem;
+    }
+}
+
+/* DARK MODE SUPPORT */
+@media (prefers-color-scheme: dark) {
+    .maps-container,
+    .location-info,
+    .transportation,
+    .info-item {
+        background: #2d2d2d;
+        color: #f0f0f0;
+    }
+    
+    .info-item h4 {
+        color: #f0f0f0;
+    }
+    
+    .info-item p {
+        color: #cccccc;
+    }
+    
+    .btn-share {
+        background: #3d3d3d;
+        color: #f0f0f0;
+    }
+    
+    .maps-iframe {
+        border-color: #444;
+    }
+}
+
+/* PRINT STYLES */
+@media print {
+    .location-controls,
+    .transportation,
+    .action-buttons {
+        display: none !important;
+    }
+    
+    .maps-iframe {
+        height: 400px;
+    }
+    
+    .maps-section {
+        page-break-inside: avoid;
+    }
+}
