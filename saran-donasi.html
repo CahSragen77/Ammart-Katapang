@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Saran & Donasi | A‑Mart Katapang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Saran dan kritik membangun, serta donasi wakaf Al-Qur'an dan kemanusiaan.">
+  <link rel="canonical" href="https://example.com/saran-donasi.html">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="header-left"><img src="assets/img/logo.png" alt="Logo A‑Mart Katapang" class="logo"></div>
+      <div class="header-center"><h1>Saran & Donasi</h1></div>
+      <div class="header-right"><div id="clock">--:--</div></div>
+    </div>
+    <nav class="top-nav container">
+      <a href="index.html">Beranda</a>
+      <a href="lokasi.html">Lokasi</a>
+      <a href="katalog.html">Katalog</a>
+      <a href="saran-donasi.html" class="active">Saran & Donasi</a>
+    </nav>
+  </header>
+
+  <main class="container layout-single">
+    <section class="card">
+      <h2>Kritik & Saran</h2>
+      <form action="php/saran.php" method="POST" class="form">
+        <label>Tampilkan nama?
+          <select name="display_name">
+            <option value="named">Tampilkan nama</option>
+            <option value="anon">Anonim</option>
+          </select>
+        </label>
+        <label>Nama
+          <input type="text" name="nama" placeholder="Boleh dikosongkan jika anonim">
+        </label>
+        <label>Masukan untuk A‑Mart
+          <textarea name="saran" rows="4" required placeholder="Tulis saran/kritik yang membangun..."></textarea>
+        </label>
+        <button type="submit" class="btn primary">Kirim</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Donasi</h2>
+      <p>Pilih tujuan donasi dan metode transfer. Terima kasih sudah ikut membantu.</p>
+      <form action="php/donasi.php" method="POST" class="form">
+        <label>Tujuan donasi
+          <select name="tujuan" required>
+            <option value="wakaf-quran">Wakaf Al‑Qur'an</option>
+            <option value="kemanusiaan">Donasi Kemanusiaan</option>
+          </select>
+        </label>
+        <label>Nominal (Rp)
+          <input type="number" name="nominal" min="1000" step="1000" required>
+        </label>
+        <label>Metode transfer
+          <select name="metode" required>
+            <option value="bank">Transfer Bank</option>
+            <option value="dana">DANA</option>
+            <option value="gopay">GoPay</option>
+            <option value="ovo">OVO</option>
+            <option value="linkaja">LinkAja</option>
+          </select>
+        </label>
+        <label>Catatan
+          <textarea name="catatan" rows="3" placeholder="Nomor referensi, nama, dsb."></textarea>
+        </label>
+        <button type="submit" class="btn primary">Proses</button>
+      </form>
+      <div class="note">
+        <p>Setelah submit, sistem akan menampilkan detail rekening/perantara sesuai metode yang dipilih.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 A‑Mart Katapang</p>
+  </footer>
+
+  <script src="assets/js/clock.js"></script>
+</body>
+</html>
 
