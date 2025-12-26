@@ -520,3 +520,210 @@ body {
         flex-wrap: wrap;
     }
 }
+
+
+/* =================== */
+/* PERBAIKAN MOBILE */
+/* =================== */
+
+@media (max-width: 768px) {
+    /* Header mobile-friendly */
+    .header-info {
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .info-item {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    /* Hero section mobile */
+    .hero-banner .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 15px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+    
+    .hero-image {
+        margin-top: 20px;
+        min-width: 100%;
+    }
+    
+    /* Product grid mobile */
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 0 5px;
+    }
+    
+    .product-card {
+        margin-bottom: 5px;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+    
+    .product-price-section {
+        padding: 12px 15px;
+    }
+    
+    .price {
+        font-size: 1.3rem;
+    }
+    
+    /* Category header mobile */
+    .category-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding: 0 10px 10px 10px;
+    }
+    
+    .category-header h2 {
+        font-size: 1.4rem;
+        flex-grow: 1;
+    }
+    
+    .category-icon {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    
+    /* CTA buttons mobile */
+    .cta-buttons {
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    /* Footer mobile */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        justify-content: center;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Perbaikan khusus untuk HP kecil (di bawah 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .logo {
+        font-size: 1.5rem !important;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Single column untuk produk di HP sangat kecil */
+    .product-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Header info vertical */
+    .header-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .info-item {
+        min-width: 100%;
+        justify-content: center;
+    }
+    
+    /* Product card lebih compact */
+    .product-name {
+        font-size: 1.1rem;
+    }
+    
+    .product-description {
+        font-size: 0.85rem;
+    }
+    
+    /* Price section lebih kecil */
+    .product-price-section {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .btn-cart {
+        align-self: flex-end;
+        margin-top: -40px;
+    }
+    
+    /* Footer text lebih kecil */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Perbaikan untuk tablet (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 30px;
+    }
+}
