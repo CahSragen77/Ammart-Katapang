@@ -94,3 +94,11 @@ body {
 @media (min-width: 981px) and (max-width: 1200px) {
   .products-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+
+.cart-item { display:flex; gap:10px; align-items:center; border-bottom: 1px solid var(--border); padding: 8px 0; }
+.cart-item img { width: 54px; height: 54px; object-fit: cover; border-radius: 8px; }
+.cart-info { flex:1; }
+.cart-info .name { font-weight: 600; }
+.cart-info .meta, .cart-info .total { color: var(--muted); font-size: .9rem; }
+
