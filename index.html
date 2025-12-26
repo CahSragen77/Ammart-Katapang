@@ -1,136 +1,320 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>A‑Mart Katapang | Mini Market Ramah Keluarga</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A‑Mart Katapang: mini market lengkap sembako, telur, beras, minyak goreng, bumbu, ikan, buah, daging, promo mingguan.">
-  <meta name="keywords" content="mini market, katapang, sembako, promo, telur, beras, minyak, bumbu, ikan, buah, daging">
-  <link rel="canonical" href="https://example.com/">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Mart Katapang | Sembako Berkualitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/shopping-cart--v1.png">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner container">
-      <div class="header-left">
-        <img src="assets/img/logo.png" alt="Logo A‑Mart Katapang" class="logo">
-      </div>
-      <div class="header-center">
-        <h1>A‑Mart Katapang</h1>
-      </div>
-      <div class="header-right">
-        <div id="clock" aria-label="Jam sekarang">--:--</div>
-      </div>
-    </div>
-    <nav class="top-nav container">
-      <a href="index.html" class="active">Beranda</a>
-      <a href="lokasi.html">Lokasi</a>
-      <a href="katalog.html">Katalog</a>
-      <a href="saran-donasi.html">Saran & Donasi</a>
-    </nav>
-  </header>
-
-  <main class="container layout">
-    <aside class="sidebar">
-      <section class="card">
-        <h2>Buku Tamu</h2>
-        <p>Isi data kamu biar kami bisa kasih promo yang pas.</p>
-        <form action="php/guestbook.php" method="POST" class="form">
-          <label>Nama
-            <input type="text" name="nama" required>
-          </label>
-          <label>No. Telepon
-            <input type="tel" name="telepon" required>
-          </label>
-          <label>Alamat
-            <input type="text" name="alamat" required>
-          </label>
-          <label>Info tambahan
-            <textarea name="info" rows="3" placeholder="Produk favorit, jam belanja, dsb."></textarea>
-          </label>
-          <button type="submit" class="btn primary">Kirim</button>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Iklan Mingguan</h2>
-        <div class="ad-grid">
-          <div class="ad-slot">[Slot Iklan 1]</div>
-          <div class="ad-slot">[Slot Iklan 2]</div>
+    <!-- Header & Navigasi -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-section">
+                <i class="fas fa-shopping-cart logo-icon"></i>
+                <div>
+                    <h1 class="logo">A-Mart <span class="logo-highlight">Katapang</span></h1>
+                    <p class="tagline">Sembako Berkualitas, Harga Terjangkau</p>
+                </div>
+            </div>
+            
+            <div class="header-info">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Buka: 07:00 - 21:00 WIB</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0857-1234-5678</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jl. Katapang No. 77</span>
+                </div>
+            </div>
         </div>
-      </section>
-    </aside>
+    </header>
 
-    <section class="content">
-      <section class="card banner">
-        <img src="assets/img/banner-telur.jpg" alt="Promo Telur Segar" class="banner-img">
-        <div class="banner-info">
-          <h2>Telur Ayam Negeri</h2>
-          <p class="price">Mulai Rp 28.000 / kg</p>
-          <p class="subtitle">Segar, aman, dan hemat untuk kebutuhan harian.</p>
+    <!-- Banner Utama -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">HARGA SEMBAKO <span class="highlight">TERBARU</span></h2>
+                <p class="hero-subtitle">Update: <span class="current-time">12:40 WIB</span></p>
+                <p class="hero-description">Kualitas premium dengan harga pasar yang kompetitif. Belanja hemat tanpa khawatir!</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn btn-primary">Lihat Produk</a>
+                    <a href="#contact" class="btn btn-secondary">Hubungi Kami</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sembako Berkualitas">
+            </div>
         </div>
-      </section>
-
-      <section class="card">
-        <h2>Fast Moving Sembako</h2>
-        <div class="products-grid">
-          <!-- 4 baris x 5 kolom = 20 item; contoh placeholder -->
-          <div class="product"><img src="assets/img/beras.jpg" alt="Beras"><h3>Beras Premium</h3><p>Rp 65.000 / 5kg</p></div>
-          <div class="product"><img src="assets/img/minyak.jpg" alt="Minyak Goreng"><h3>Minyak Goreng</h3><p>Rp 16.000 / lt</p></div>
-          <div class="product"><img src="assets/img/tepung.jpg" alt="Tepung"><h3>Tepung Terigu</h3><p>Rp 12.000 / kg</p></div>
-          <div class="product"><img src="assets/img/bumbu.jpg" alt="Bumbu"><h3>Bumbu Dapur</h3><p>Mulai Rp 3.000</p></div>
-          <div class="product"><img src="assets/img/ikan.jpg" alt="Ikan"><h3>Ikan Segar</h3><p>Rp 35.000 / kg</p></div>
-
-          <div class="product"><img src="assets/img/buah.jpg" alt="Buah"><h3>Buah Campur</h3><p>Mulai Rp 5.000</p></div>
-          <div class="product"><img src="assets/img/ayam.jpg" alt="Daging Ayam"><h3>Daging Ayam</h3><p>Rp 38.000 / kg</p></div>
-          <div class="product"><img src="assets/img/sapi.jpg" alt="Daging Sapi"><h3>Daging Sapi</h3><p>Rp 125.000 / kg</p></div>
-          <div class="product"><img src="assets/img/gula.jpg" alt="Gula Pasir"><h3>Gula Pasir</h3><p>Rp 15.000 / kg</p></div>
-          <div class="product"><img src="assets/img/garam.jpg" alt="Garam"><h3>Garam</h3><p>Rp 2.000 / pcs</p></div>
-
-          <div class="product"><img src="assets/img/susu.jpg" alt="Susu"><h3>Susu UHT</h3><p>Rp 8.000 / pcs</p></div>
-          <div class="product"><img src="assets/img/mie.jpg" alt="Mi Instan"><h3>Mi Instan</h3><p>Rp 3.000 / pcs</p></div>
-          <div class="product"><img src="assets/img/kopi.jpg" alt="Kopi"><h3>Kopi Sachet</h3><p>Rp 2.500 / pcs</p></div>
-          <div class="product"><img src="assets/img/teh.jpg" alt="Teh"><h3>Teh Celup</h3><p>Rp 9.000 / pcs</p></div>
-          <div class="product"><img src="assets/img/bawang.jpg" alt="Bawang"><h3>Bawang Merah</h3><p>Rp 35.000 / kg</p></div>
-
-          <div class="product"><img src="assets/img/cabai.jpg" alt="Cabai"><h3>Cabai Merah</h3><p>Rp 45.000 / kg</p></div>
-          <div class="product"><img src="assets/img/ikan-asin.jpg" alt="Ikan Asin"><h3>Ikan Asin</h3><p>Rp 28.000 / kg</p></div>
-          <div class="product"><img src="assets/img/tahu.jpg" alt="Tahu"><h3>Tahu</h3><p>Rp 2.000 / pcs</p></div>
-          <div class="product"><img src="assets/img/tempe.jpg" alt="Tempe"><h3>Tempe</h3><p>Rp 3.000 / pcs</p></div>
-          <div class="product"><img src="assets/img/air.jpg" alt="Air Mineral"><h3>Air Mineral</h3><p>Rp 5.000 / botol</p></div>
-        </div>
-      </section>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Kontak</h3>
-        <p>Jl. Raya Katapang No. 123, Bandung, Jawa Barat</p>
-        <p>Tel: 0812‑3456‑7890</p>
-        <p>Email: cs@amartkatapang.id</p>
-      </div>
-      <div>
-        <h3>Sosial & Toko</h3>
-        <ul class="social-list">
-          <li><a href="#" aria-label="Facebook">Facebook</a></li>
-          <li><a href="#" aria-label="YouTube">YouTube</a></li>
-          <li><a href="#" aria-label="X">X (Twitter)</a></li>
-          <li><a href="#" aria-label="Threads">Threads</a></li>
-          <li><a href="#" aria-label="Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="TikTok">TikTok</a></li>
-          <li><a href="#" aria-label="Shopee">Shopee</a></li>
-          <li><a href="https://wa.me/6281234567890" aria-label="WhatsApp">WhatsApp</a></li>
-          <li><a href="https://t.me/your_bot" aria-label="Telegram">Telegram</a></li>
-        </ul>
-      </div>
-    </div>
-    <p class="copyright">© 2025 A‑Mart Katapang</p>
-  </footer>
+    <!-- Produk -->
+    <main class="container" id="products">
+        <!-- Kategori 1: Bahan Pokok Utama -->
+        <section class="product-category">
+            <div class="category-header">
+                <i class="fas fa-home category-icon"></i>
+                <h2>Bahan Pokok Utama</h2>
+                <span class="badge">10 Produk</span>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge best-price">Harga Terbaik</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Beras Premium</h3>
+                        <p class="product-description">Kualitas terbaik, pulen dan wangi</p>
+                        <div class="product-meta">
+                            <span class="product-unit">5kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 65.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
 
-  <script src="assets/js/clock.js"></script>
-  <script src="assets/js/main.js"></script>
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Minyak Goreng</h3>
+                        <p class="product-description">Minyak sayur kemasan botol</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1 Liter</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 16.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Gula Pasir</h3>
+                        <p class="product-description">Gula putih kristal halus</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Tepung Terigu</h3>
+                        <p class="product-description">Tepung protein sedang</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 12.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 2: Protein & Segar -->
+        <section class="product-category">
+            <div class="category-header">
+                <i class="fas fa-drumstick-bite category-icon"></i>
+                <h2>Protein & Segar</h2>
+                <span class="badge">6 Produk</span>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-badge fresh">Segar</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Daging Ayam</h3>
+                        <p class="product-description">Ayam potong bersih</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 38.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge fresh">Segar</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Daging Sapi</h3>
+                        <p class="product-description">Kualitas premium</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock limited"><i class="fas fa-exclamation-circle"></i> Terbatas</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 125.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge fresh">Segar</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ikan Segar</h3>
+                        <p class="product-description">Ikan laut segar</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 35.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Ikan Asin</h3>
+                        <p class="product-description">Ikan asin pilihan</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 28.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori 3: Bumbu Dapur -->
+        <section class="product-category">
+            <div class="category-header">
+                <i class="fas fa-mortar-pestle category-icon"></i>
+                <h2>Bumbu Dapur</h2>
+                <span class="badge">4 Produk</span>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Bawang Merah</h3>
+                        <p class="product-description">Bawang merah lokal</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock limited"><i class="fas fa-exclamation-circle"></i> Terbatas</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 35.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Cabai Merah</h3>
+                        <p class="product-description">Cabai merah keriting</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1kg</span>
+                            <span class="product-stock limited"><i class="fas fa-exclamation-circle"></i> Terbatas</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 45.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Garam</h3>
+                        <p class="product-description">Garam beryodium</p>
+                        <div class="product-meta">
+                            <span class="product-unit">1 bungkus</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Rp 2.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <h3 class="product-name">Bumbu Dasar</h3>
+                        <p class="product-description">Paket bumbu lengkap</p>
+                        <div class="product-meta">
+                            <span class="product-unit">Paket</span>
+                            <span class="product-stock"><i class="fas fa-check-circle"></i> Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="product-price-section">
+                        <div class="price">Mulai Rp 3.000</div>
+                        <button class="btn-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3 class="footer-title">A-Mart Katapang</h3>
+                    <p class="footer-description">Toko sembako terlengkap di Katapang dengan harga kompetitif dan kualitas terjamin.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Kontak Kami</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Katapang No. 77, Katapang, Bandung</p>
+                        <p><i class="fas fa-phone"></i> 0857-1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> info@amartkatapang.com</p>
+                        <p><i class="fas fa-clock"></i> Buka setiap hari 07:00 - 21:00 WIB</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-shopping-bag"></i> Belanja Online</a></li>
+                        <li><a href="#"><i class="fas fa-truck"></i> Antar Gratis (min. Rp 100.000)</a></li>
+                        <li><a href="#"><i class="fas fa-box"></i> Pesan Antar</a></li>
+                        <li><a href="#"><i class="fas fa-percentage"></i> Promo Mingguan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 A-Mart Katapang. Semua hak dilindungi.</p>
+                <p class="update-info">Harga diperbarui: <span class="current-time">12:40 WIB</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
