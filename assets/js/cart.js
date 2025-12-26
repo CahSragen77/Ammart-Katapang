@@ -83,7 +83,7 @@ const Cart = {
     const text = encodeURIComponent(
       `Assalamu'alaikum... Halo Kakak-Kakak Amanda Mart Katapang, Aku mau checkout:\n${lines.join('\n')}\nTotal: Rp ${total.toLocaleString('id-ID')}`
     );
-    const phone = '6281389188903'; // ganti ke nomor WA admin
+    const phone ='6281389188903'; // ganti ke nomor WA admin
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
   },
   checkoutTelegram(){
