@@ -1,0 +1,130 @@
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .header-content {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .time-display {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: 0 0 auto;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .title h1 {
+        font-size: 2rem;
+    }
+    
+    .time-display {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        margin: 5px 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-text .price {
+        font-size: 1.5rem;
+    }
+    
+    .promo-banners {
+        grid-template-columns: 1fr;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-info p {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-text {
+        padding: 15px;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .banner-text .price {
+        font-size: 1.2rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .social-icons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+    }
+}
