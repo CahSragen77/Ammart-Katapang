@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - A-Mart Katapang</title>
+    <meta name="description" content="Katalog lengkap produk A-Mart Katapang: sembako, buah, sayur, daging segar dengan harga terbaik.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Navigation -->
+    <div id="navigation"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="catalog-header">
+                <h1><i class="fas fa-store"></i> Katalog Produk A-Mart Katapang</h1>
+                <p class="subtitle">Temukan semua kebutuhan sehari-hari dengan harga termurah</p>
+                
+                <!-- Search & Filter -->
+                <div class="catalog-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Cari produk...">
+                    </div>
+                    
+                    <div class="category-filter">
+                        <button class="cat-btn active" data-category="all">Semua</button>
+                        <button class="cat-btn" data-category="sembako">Sembako</button>
+                        <button class="cat-btn" data-category="buah-sayur">Buah & Sayur</button>
+                        <button class="cat-btn" data-category="daging">Daging Segar</button>
+                        <button class="cat-btn" data-category="minuman">Minuman</button>
+                        <button class="cat-btn" data-category="bumbu">Bumbu Dapur</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-grid">
+                <!-- Produk akan dimuat via JavaScript -->
+            </div>
+
+            <!-- Product Info Modal -->
+            <div class="modal" id="product-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="modal-body" id="modal-body">
+                        <!-- Konten modal akan diisi via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Cart Icon -->
+    <div class="cart-floating" id="cart-floating">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <!-- Item keranjang akan dimuat di sini -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Keranjang belanja kosong</p>
+            </div>
+        </div>
+        
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">Rp 0</span>
+            </div>
+            <div class="summary-row">
+                <span>Diskon:</span>
+                <span id="discount">Rp 0</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">Rp 0</span>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn-clear" id="clear-cart">
+                    <i class="fas fa-trash"></i> Kosongkan
+                </button>
+                <button class="btn-checkout" id="checkout-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </button>
+                <button class="btn-checkout telegram" id="checkout-telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/cart-system.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
