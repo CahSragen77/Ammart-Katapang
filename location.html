@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi - A-Mart Katapang</title>
+    <meta name="description" content="Temukan lokasi A-Mart Katapang di Jl. Raya Katapang No. 123. Buka setiap hari 07:00-22:00 WIB.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/location.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <style>
+        /* Custom styles untuk map */
+        #map {
+            height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .gm-style .gm-style-iw-c {
+            border-radius: 10px !important;
+            padding: 15px !important;
+        }
+        
+        .gm-style-iw-d {
+            overflow: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Navigation -->
+    <div id="navigation"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="location-hero">
+                <div class="hero-content">
+                    <h1><i class="fas fa-map-marker-alt"></i> Temukan Lokasi Kami</h1>
+                    <p class="hero-subtitle">Kunjungi A-Mart Katapang untuk pengalaman belanja terbaik</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>07:00 - 22:00</h3>
+                                <p>Setiap Hari</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-car"></i>
+                            <div>
+                                <h3>Parkir Luas</h3>
+                                <p>Motor & Mobil</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-store"></i>
+                            <div>
+                                <h3>10+ Tahun</h3>
+                                <p>Melayani Katapang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-ornament">
+                    <div class="floating-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring delay-1"></div>
+                    <div class="pulse-ring delay-2"></div>
+                </div>
+            </section>
+
+            <!-- Promo Banners -->
+            <section class="promo-section location-promo">
+                <h2><i class="fas fa-bullhorn"></i> Informasi Penting</h2>
+                <div class="promo-banners">
+                    <div class="promo-card" id="promo1">
+                        <div class="promo-icon">
+                            <i class="fas fa-calendar-star"></i>
+                        </div>
+                        <h3>Jam Operasional</h3>
+                        <p>Buka Setiap Hari</p>
+                        <p class="promo-time">07:00 - 22:00 WIB</p>
+                    </div>
+                    <div class="promo-card" id="promo2">
+                        <div class="promo-icon">
+                            <i class="fas fa-truck-fast"></i>
+                        </div>
+                        <h3>Layanan Antar</h3>
+                        <p>Gratis Ongkir</p>
+                        <p class="promo-radius">Radius 3 KM</p>
+                    </div>
+                    <div class="promo-card" id="promo3">
+                        <div class="promo-icon">
+                            <i class="fas fa-phone-volume"></i>
+                        </div>
+                        <h3>Hubungi Kami</h3>
+                        <p>Siap Membantu</p>
+                        <p class="promo-phone">(022) 1234-5678</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Maps Section -->
+            <section class="maps-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-map"></i> Peta Lokasi</h2>
+                    <p>Koordinat: -7.003456, 107.556789</p>
+                </div>
+                
+                <div class="maps-container">
+                    <!-- Google Maps Embed -->
+                    <div class="map-embed" id="map">
+                        <!-- Map akan dimuat via JavaScript -->
+                        <div class="map-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Memuat peta...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Controls -->
+                    <div class="map-controls">
+                        <div class="control-card">
+                            <h3><i class="fas fa-compass"></i> Navigasi</h3>
+                            <p>Dapatkan petunjuk arah ke lokasi kami</p>
+                            <div class="nav-buttons">
+                                <button class="nav-btn google-maps" id="nav-google">
+                                    <i class="fab fa-google"></i> Google Maps
+                                </button>
+                                <button class="nav-btn waze" id="nav-waze">
+                                    <i class="fab fa-waze"></i> Waze
+                                </button>
+                                <button class="nav-btn apple-maps" id="nav-apple">
+                                    <i class="fab fa-apple"></i> Apple Maps
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-card">
+                            <h3><i class="fas fa-share-alt"></i> Bagikan Lokasi</h3>
+                            <p>Bagikan lokasi kami ke teman atau keluarga</p>
+                            <div class="share-buttons">
+                                <button class="share-btn whatsapp" id="share-whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="share-btn telegram" id="share-telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </button>
+                                <button class="share-btn copy-link" id="copy-link">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QR Code untuk Akses Cepat -->
+                <div class="qr-section">
+                    <div class="qr-card">
+                        <div class="qr-code" id="qr-code">
+                            <!-- QR Code akan digenerate via JavaScript -->
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <div class="qr-info">
+                            <h3><i class="fas fa-mobile-alt"></i> Scan untuk Akses Cepat</h3>
+                            <p>Scan QR code ini dengan smartphone untuk langsung mendapatkan arah ke lokasi kami</p>
+                            <p class="qr-note"><i class="fas fa-lightbulb"></i> Simpan di galeri untuk akses cepat</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Store Details -->
+            <section class="store-details">
+                <div class="details-header">
+                    <h2><i class="fas fa-store-alt"></i> Detail Toko</h2>
+                    <p>Informasi lengkap tentang A-Mart Katapang</p>
+                </div>
+                
+                <div class="details-grid">
+                    <!-- Store Info -->
+                    <div class="detail-card main-info">
+                        <div class="card-header">
+                            <i class="fas fa-info-circle"></i>
+                            <h3>Informasi Utama</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item">
+                                <i class="fas fa-signature"></i>
+                                <div>
+                                    <h4>Nama Toko</h4>
+                                    <p>A-Mart Katapang</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-pin"></i>
+                                <div>
+                                    <h4>Alamat Lengkap</h4>
+                                    <p>Jl. Raya Katapang No. 123, Kelurahan Katapang, Kecamatan Katapang, Kabupaten Bandung, Jawa Barat 40921</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Jam Operasional</h4>
+                                    <p><strong>Senin - Minggu:</strong> 07:00 - 22:00 WIB</p>
+                                    <p><strong>Hari Libur Nasional:</strong> Tetap buka (10:00 - 20:00)</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Kontak</h4>
+                                    <p><strong>Telepon:</strong> (022) 1234-5678</p>
+                                    <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+                                    <p><strong>Email:</strong> info@amartkatapang.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilities -->
+                    <div class="detail-card facilities">
+                        <div class="card-header">
+                            <i class="fas fa-concierge-bell"></i>
+                            <h3>Fasilitas</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="facility-list">
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Parkir Luas (Motor & Mobil)</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Toilet Umum Bersih</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Area Tunggu Nyaman</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>AC Ruangan</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Free WiFi</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Layanan Antar Gratis</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>ATM Terdekat</span>
+                                </div>
+                                <div class="facility-item available">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Area Bermain Anak</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Transportation -->
+                    <div class="detail-card transportation">
+                        <div class="card-header">
+                            <i class="fas fa-bus"></i>
+                            <h3>Akses Transportasi</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="transport-list">
+                                <div class="transport-item">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <div>
+                                        <h4>Ojek Online</h4>
+                                        <p>Gojek, Grab tersedia di area toko</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-taxi"></i>
+                                    <div>
+                                        <h4>Taxi</h4>
+                                        <p>Blue Bird, Express tersedia</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-bus"></i>
+                                    <div>
+                                        <h4>Angkot</h4>
+                                        <p>Rute 05, 12, 17 lewat depan toko</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-car"></i>
+                                    <div>
+                                        <h4>Kendaraan Pribadi</h4>
+                                        <p>Akses jalan utama, dekat pertigaan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nearby Places -->
+                    <div class="detail-card nearby">
+                        <div class="card-header">
+                            <i class="fas fa-landmark"></i>
+                            <h3>Tempat Terdekat</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="nearby-list">
+                                <div class="nearby-item">
+                                    <i class="fas fa-hospital"></i>
+                                    <div>
+                                        <h4>Puskesmas Katapang</h4>
+                                        <p>500 meter dari toko</p>
+                                    </div>
+                                </div>
+                                <div class="nearby-item">
+                                    <i class="fas fa-school"></i>
+                                    <div>
+                                        <h4>SDN Katapang 1</h4>
+                                        <p>300 meter dari toko</p>
+                                    </div>
+                                </div>
+                                <div class="nearby-item">
+                                    <i class="fas fa-mosque"></i>
+                                    <div>
+                                        <h4>Masjid Al-Ikhlas</h4>
+                                        <p>200 meter dari toko</p>
+                                    </div>
+                                </div>
+                                <div class="nearby-item">
+                                    <i class="fas fa-gas-pump"></i>
+                                    <div>
+                                        <h4>SPBU Pertamina</h4>
+                                        <p>1 km dari toko</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery -->
+            <section class="photo-gallery">
+                <div class="gallery-header">
+                    <h2><i class="fas fa-images"></i> Galeri Foto</h2>
+                    <p>Lihat suasana A-Mart Katapang</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item main-photo">
+                        <img src="assets/location/store-front.jpg" alt="Tampak Depan A-Mart Katapang" 
+                             onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80'">
+                        <div class="photo-caption">
+                            <h3>Tampak Depan Toko</h3>
+                            <p>Bangunan utama A-Mart Katapang</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/location/parking-area.jpg" alt="Area Parkir Luas" 
+                             onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w-400&q=80'">
+                        <div class="photo-caption">
+                            <h3>Area Parkir</h3>
+                            <p>Parkir luas untuk motor dan mobil</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/location/interior.jpg" alt="Interior Toko" 
+                             onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80'">
+                        <div class="photo-caption">
+                            <h3>Interior Toko</h3>
+                            <p>Rak produk yang tertata rapi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Directions Section -->
+            <section class="directions-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-directions"></i> Petunjuk Arah</h2>
+                    <p>Cara mudah mencapai lokasi kami</p>
+                </div>
+                
+                <div class="directions-container">
+                    <div class="direction-tabs">
+                        <button class="dir-tab active" data-route="from-bandung">Dari Bandung</button>
+                        <button class="dir-tab" data-route="from-jakarta">Dari Jakarta</button>
+                        <button class="dir-tab" data-route="from-tasik">Dari Tasikmalaya</button>
+                        <button class="dir-tab" data-route="from-station">Dari Stasiun</button>
+                    </div>
+                    
+                    <div class="direction-content">
+                        <div class="dir-route active" id="from-bandung">
+                            <h3><i class="fas fa-route"></i> Rute dari Bandung</h3>
+                            <ol class="route-steps">
+                                <li>Dari Kota Bandung, ambil Jalan Tol Padaleunyi</li>
+                                <li>Keluar di Exit Tol Kopo</li>
+                                <li>Belok kiri menuju Jalan Raya Kopo</li>
+                                <li>Lurus 5 km sampai pertigaan Katapang</li>
+                                <li>Belok kanan ke Jalan Raya Katapang</li>
+                                <li>A-Mart Katapang berada di sisi kiri jalan (No. 123)</li>
+                            </ol>
+                            <div class="route-info">
+                                <p><i class="fas fa-clock"></i> <strong>Waktu Tempuh:</strong> 45-60 menit</p>
+                                <p><i class="fas fa-road"></i> <strong>Jarak:</strong> 25 km</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dir-route" id="from-jakarta">
+                            <h3><i class="fas fa-route"></i> Rute dari Jakarta</h3>
+                            <ol class="route-steps">
+                                <li>Dari Jakarta, ambil Tol Cipularang</li>
+                                <li>Keluar di Exit Tol Kopo</li>
+                                <li>Belok kiri menuju Jalan Raya Kopo</li>
+                                <li>Lurus 5 km sampai pertigaan Katapang</li>
+                                <li>Belok kanan ke Jalan Raya Katapang</li>
+                                <li>A-Mart Katapang berada di sisi kiri jalan</li>
+                            </ol>
+                            <div class="route-info">
+                                <p><i class="fas fa-clock"></i> <strong>Waktu Tempuh:</strong> 2-2.5 jam</p>
+                                <p><i class="fas fa-road"></i> <strong>Jarak:</strong> 150 km</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Traffic -->
+            <section class="traffic-section">
+                <div class="traffic-card">
+                    <div class="traffic-header">
+                        <i class="fas fa-traffic-light"></i>
+                        <h3>Info Lalu Lintas</h3>
+                    </div>
+                    <div class="traffic-body">
+                        <div class="traffic-status">
+                            <div class="status-indicator green"></div>
+                            <div class="status-info">
+                                <h4>Kondisi Lancar</h4>
+                                <p>Lalu lintas menuju Katapang dalam kondisi lancar</p>
+                            </div>
+                        </div>
+                        <div class="traffic-details">
+                            <div class="detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Waktu Terbaik Kunjungi: 10:00 - 17:00</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Hindari Jam: 07:30 - 09:00 & 16:30 - 18:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/location.js"></script>
+    
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</body>
+</html>
