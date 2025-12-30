@@ -1,0 +1,166 @@
+/* Banner Section */
+.banner-section {
+    margin: 30px 0;
+}
+
+.banner {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.banner-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 30px;
+}
+
+.banner-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.banner-text .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4CAF50;
+    background: rgba(255, 255, 255, 0.9);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.banner-text .promo-text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Guestbook Styles */
+.guestbook {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.guestbook h3 {
+    color: #1a6d1a;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.guestbook h3 i {
+    margin-right: 10px;
+}
+
+.guestbook p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Promo Section */
+.promo-section {
+    margin-bottom: 40px;
+}
+
+.promo-section h2 {
+    color: #1a6d1a;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ffd700;
+}
+
+.promo-banners {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.promo-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.promo-banner.empty {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.promo-banner:hover {
+    transform: translateY(-5px);
+}
+
+/* Products Section */
+.products-section h2 {
+    color: #1a6d1a;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ffd700;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.product-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.product-price {
+    color: #1a6d1a;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
