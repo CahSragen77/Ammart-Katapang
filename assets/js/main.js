@@ -189,3 +189,82 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update active nav
     updateActiveNav();
 });
+
+// Tambahkan fungsi ini ke main.js yang sudah ada
+
+// Fungsi untuk load location page
+function loadLocationPage() {
+    // Cek jika di halaman lokasi
+    if (window.location.pathname.includes('location.html') || 
+        document.querySelector('.location-hero')) {
+        
+        console.log('Location page loaded');
+        
+        // Update active nav
+        updateActiveNav();
+        
+        // Tambahkan CSS untuk notification
+        addNotificationStyles();
+    }
+}
+
+// Add notification styles
+function addNotificationStyles() {
+    const styleId = 'notification-styles';
+    if (document.getElementById(styleId)) return;
+    
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideDown 0.3s;
+            border-left: 5px solid;
+            transition: all 0.3s;
+        }
+        
+        .notification.success { border-left-color: #1a6d1a; }
+        .notification.error { border-left-color: #ff4757; }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Update event listener di main.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Load common components
+    if (document.getElementById('header')) {
+        loadCommonComponents();
+    }
+    
+    // Load location page jika diperlukan
+    loadLocationPage();
+    
+    // Load catalog page jika diperlukan
+    loadCatalogPage();
+    
+    // Load home products jika di beranda
+    if (document.getElementById('products-grid')) {
+        loadHomeProducts();
+    }
+    
+    // Initialize navigation
+    initializeNavigation();
+    
+    // Update active nav
+    updateActiveNav();
+});
