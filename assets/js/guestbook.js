@@ -1,6 +1,6 @@
 // Konfigurasi Google Sheets
 const GOOGLE_SHEETS_CONFIG = {
-    scriptURL: 'https://script.google.com/macros/s/AKfycby.../exec', // GANTI dengan URL Apps Script Anda
+    scriptURL: 'https://script.google.com/macros/s/AKfycbyESJWMIc7HNVvpZ8_i_mbN4swipMtjo5SJzojuL_xbKUaED-QR8WB9Nu8JFNS0R2al/exec', // GANTI dengan URL Apps Script Anda
     sheetName: 'BukuTamu',
     fields: ['timestamp', 'nama', 'telepon', 'email', 'alamat', 'minat', 'pesan']
 };
