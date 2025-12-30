@@ -12,45 +12,18 @@
     <meta property="og:image" content="assets/logo.png">
     <meta property="og:url" content="https://amartkatapang.com">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
+    <!-- SEMUA CSS DI LINK -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="assets/logo.png" alt="A-Mart Katapang Logo" id="logo-img">
-                </div>
-                <div class="title">
-                    <h1>A-Mart Katapang</h1>
-                    <p class="tagline">Mini Market Terpercaya Sejak 2010</p>
-                </div>
-                <div class="time-display">
-                    <div class="date" id="current-date"></div>
-                    <div class="time" id="current-time"></div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Header -->
+    <div id="header"></div>
 
     <!-- Navigation -->
-    <nav class="navigation">
-        <div class="container">
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a></li>
-                <li><a href="location.html"><i class="fas fa-map-marker-alt"></i> Lokasi</a></li>
-                <li><a href="catalog.html"><i class="fas fa-shopping-basket"></i> Katalog</a></li>
-                <li><a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a></li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+    <div id="navigation"></div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -76,28 +49,39 @@
                             <p>Silakan tinggalkan data Anda untuk mendapatkan info promo terbaru</p>
                             <form id="guestbook-form">
                                 <div class="form-group">
-                                    <label for="name">Nama Lengkap</label>
+                                    <label for="name">Nama Lengkap *</label>
                                     <input type="text" id="name" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Nomor Telepon</label>
+                                    <label for="phone">Nomor Telepon *</label>
                                     <input type="tel" id="phone" name="phone" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Alamat</label>
+                                    <label for="email">Alamat Email</label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Alamat Lengkap *</label>
                                     <textarea id="address" name="address" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="interest">Produk yang diminati</label>
-                                    <select id="interest" name="interest">
+                                    <label for="interest">Produk yang diminati *</label>
+                                    <select id="interest" name="interest" required>
+                                        <option value="">Pilih...</option>
                                         <option value="sembako">Sembako</option>
                                         <option value="buah-sayur">Buah & Sayur</option>
                                         <option value="daging">Daging Segar</option>
-                                        <option value="lauk-pauk">Lauk Pauk</option>
+                                        <option value="minuman">Minuman</option>
                                         <option value="semua">Semua Produk</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn-submit">Kirim Data</button>
+                                <div class="form-group">
+                                    <label for="message">Pesan Tambahan</label>
+                                    <textarea id="message" name="message" rows="2" placeholder="Kebutuhan khusus atau pertanyaan..."></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-paper-plane"></i> Kirim Data
+                                </button>
                             </form>
                             <div id="guestbook-message" class="message"></div>
                         </div>
@@ -121,8 +105,8 @@
                         <!-- Fast Moving Products -->
                         <section class="products-section">
                             <h2>Produk Cepat Laris</h2>
-                            <div class="products-grid">
-                                <!-- Product items will be populated by JavaScript -->
+                            <div class="products-grid" id="products-grid">
+                                <!-- Produk akan dimuat via JavaScript -->
                             </div>
                         </section>
                     </div>
@@ -132,38 +116,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>A-Mart Katapang</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Bojong Salak No.1, RT.1/RW.21, Cilampeni, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921</p>
-                    <p><i class="fas fa-phone"></i> (022) xxx-xxxx</p>
-                    <p><i class="fas fa-mobile-alt"></i> +62811-1112-0670</p>
-                    <p><i class="fas fa-envelope"></i> info@xxxx.com</p>
-                </div>
-                <div class="social-links">
-                    <h3>Ikuti Kami</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-threads"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-shopee"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 A-Mart Katapang. Semua hak dilindungi.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/guestbook.js"></script>
+    <!-- SEMUA JAVASCRIPT DI LINK DI BAWAH -->
+    <script src="js/main.js"></script>
+    <script src="js/guestbook.js"></script>
+    <script src="js/utils.js"></script>
 </body>
 </html>
