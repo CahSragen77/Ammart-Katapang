@@ -135,3 +135,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inisialisasi lainnya
     initializeNavigation();
 });
+
+// Tambahkan fungsi ini ke file main.js yang sudah ada
+
+// Fungsi untuk load katalog page
+function loadCatalogPage() {
+    // Cek jika di halaman katalog
+    if (window.location.pathname.includes('catalog.html') || 
+        document.getElementById('product-grid')) {
+        
+        // Inisialisasi cart dan catalog sudah otomatis
+        console.log('Catalog page loaded');
+        
+        // Update active nav
+        updateActiveNav();
+    }
+}
+
+// Update active navigation
+function updateActiveNav() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const linkPage = link.getAttribute('href');
+        
+        if ((currentPage === '' && linkPage === 'index.html') ||
+            (linkPage === currentPage)) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Update event listener di main.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Load common components
+    if (document.getElementById('header')) {
+        loadCommonComponents();
+    }
+    
+    // Load catalog page jika diperlukan
+    loadCatalogPage();
+    
+    // Load home products jika di beranda
+    if (document.getElementById('products-grid')) {
+        loadHomeProducts();
+    }
+    
+    // Initialize navigation
+    initializeNavigation();
+    
+    // Update active nav
+    updateActiveNav();
+});
