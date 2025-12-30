@@ -1,0 +1,320 @@
+/* Responsive Design untuk A-Mart Katapang */
+
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .title {
+        padding: 0 10px;
+    }
+    
+    .title h1 {
+        font-size: 2.2rem;
+    }
+    
+    .time-display {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: 0 0 auto;
+        margin-bottom: 30px;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .promo-banners {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Styles (480px - 768px) */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .time-display {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background: #2c3e50;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        padding: 10px 0;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        margin: 5px 0;
+    }
+    
+    .nav-menu a {
+        padding: 12px 20px;
+        justify-content: center;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+    
+    .banner-img {
+        height: 300px;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-text .price {
+        font-size: 1.5rem;
+    }
+    
+    .promo-banners {
+        grid-template-columns: 1fr;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-info p {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .cart-panel {
+        width: 90%;
+        right: -100%;
+    }
+    
+    .checkout-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Small Mobile Styles (0 - 480px) */
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 1.6rem;
+    }
+    
+    .banner {
+        margin: 15px 0;
+    }
+    
+    .banner-img {
+        height: 250px;
+    }
+    
+    .banner-text {
+        padding: 15px;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .banner-text .price {
+        font-size: 1.2rem;
+        padding: 3px 10px;
+    }
+    
+    .banner-text .promo-text {
+        font-size: 1rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-item {
+        margin-bottom: 15px;
+    }
+    
+    .guestbook {
+        padding: 20px;
+    }
+    
+    .social-icons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .cart-icon {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .cart-count {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    
+    .form-section {
+        padding: 20px 15px;
+    }
+    
+    .donation-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .payment-methods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Very Small Devices (Smartphone kecil) */
+@media (max-width: 360px) {
+    .title h1 {
+        font-size: 1.4rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-img {
+        height: 180px;
+    }
+    
+    .social-icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: 10px 0;
+    }
+    
+    .banner-img {
+        height: 200px;
+    }
+    
+    .main-layout {
+        margin: 15px 0;
+    }
+    
+    .guestbook {
+        padding: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navigation,
+    .cart-icon,
+    .mobile-menu-btn,
+    .social-icons,
+    .btn-submit,
+    .add-to-cart-btn {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+}
