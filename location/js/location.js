@@ -2,12 +2,14 @@
 class LocationSystem {
     constructor() {
         this.storeLocation = {
-            lat: -7.003456,  // Ganti dengan latitude sebenarnya
-            lng: 107.556789, // Ganti dengan longitude sebenarnya
+
+            
+            lat: -6.9901452618572035,  // Ganti dengan latitude sebenarnya
+            lng: 107.54918777995763, // Ganti dengan longitude sebenarnya
             name: "A-Mart Katapang",
-            address: "Jl. Raya Katapang No. 123, Katapang, Bandung",
-            phone: "+622212345678",
-            whatsapp: "6281234567890"
+            address: "Bojong Salak No.1, RT.1/RW.21, Cilampeni, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921",
+            phone: "+62 XXX-XXXX",
+            whatsapp: "6281111120670"
         };
         
         this.map = null;
