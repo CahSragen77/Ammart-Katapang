@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback & Donasi - A-Mart Katapang</title>
+    <meta name="description" content="Berikan saran, kritik, testimoni atau donasi untuk kemajuan A-Mart Katapang dan program sosial.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SweetAlert2 untuk popup yang lebih baik -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        /* Custom animation untuk donasi */
+        @keyframes coinSpin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        
+        @keyframes floatDonation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .donation-coin {
+            animation: coinSpin 3s linear infinite;
+        }
+        
+        .floating-donation {
+            animation: floatDonation 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Navigation -->
+    <div id="navigation"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="feedback-hero">
+                <div class="hero-content">
+                    <h1><i class="fas fa-comments"></i> Suara Anda Berharga</h1>
+                    <p class="hero-subtitle">Setiap saran, kritik, dan dukungan membantu kami tumbuh lebih baik</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h3 data-count="128">0</h3>
+                                <p>Donasi Diterima</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h3 data-count="4.8">0</h3>
+                                <p>Rating Rata-rata</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3 data-count="245">0</h3>
+                                <p>Feedback Diterima</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-illustration">
+                    <div class="illustration-container">
+                        <div class="floating-donation">
+                            <i class="fas fa-donate donation-coin"></i>
+                        </div>
+                        <div class="chat-bubbles">
+                            <div class="bubble bubble-1">👍</div>
+                            <div class="bubble bubble-2">❤️</div>
+                            <div class="bubble bubble-3">⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabs Navigation -->
+            <div class="feedback-tabs">
+                <button class="tab-btn active" data-tab="feedback">
+                    <i class="fas fa-edit"></i> Saran & Kritik
+                </button>
+                <button class="tab-btn" data-tab="testimoni">
+                    <i class="fas fa-star"></i> Testimoni
+                </button>
+                <button class="tab-btn" data-tab="donation">
+                    <i class="fas fa-hand-holding-heart"></i> Donasi
+                </button>
+                <button class="tab-btn" data-tab="testimonies">
+                    <i class="fas fa-comment-dots"></i> Testimoni Publik
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-contents">
+                <!-- TAB 1: Feedback Form -->
+                <div class="tab-content active" id="tab-feedback">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h2><i class="fas fa-bullhorn"></i> Berikan Saran & Kritik</h2>
+                            <p>Kami menghargai setiap masukan untuk perbaikan pelayanan</p>
+                        </div>
+                        
+                        <form id="feedback-form" class="feedback-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="feedback-name"><i class="fas fa-user"></i> Nama Lengkap *</label>
+                                    <input type="text" id="feedback-name" name="name" required 
+                                           placeholder="Masukkan nama lengkap Anda">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="feedback-contact"><i class="fas fa-phone"></i> Kontak (HP/Email) *</label>
+                                    <input type="text" id="feedback-contact" name="contact" required 
+                                           placeholder="08xxx atau email@anda.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-eye"></i> Tampilkan sebagai:</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="display_type" value="name" checked>
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-label">Nama Lengkap</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="display_type" value="initial">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-label">Inisial</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="display_type" value="anonymous">
+                                        <span class="radio-custom"></span>
+                                        <span class="radio-label">Anonim</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-type"><i class="fas fa-tag"></i> Jenis Feedback *</label>
+                                <div class="category-grid">
+                                    <label class="category-option">
+                                        <input type="radio" name="feedback_type" value="saran" checked>
+                                        <div class="category-card">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>Saran</span>
+                                        </div>
+                                    </label>
+                                    <label class="category-option">
+                                        <input type="radio" name="feedback_type" value="kritik">
+                                        <div class="category-card">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            <span>Kritik</span>
+                                        </div>
+                                    </label>
+                                    <label class="category-option">
+                                        <input type="radio" name="feedback_type" value="keluhan">
+                                        <div class="category-card">
+                                            <i class="fas fa-frown"></i>
+                                            <span>Keluhan</span>
+                                        </div>
+                                    </label>
+                                    <label class="category-option">
+                                        <input type="radio" name="feedback_type" value="pujian">
+                                        <div class="category-card">
+                                            <i class="fas fa-award"></i>
+                                            <span>Pujian</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-category"><i class="fas fa-layer-group"></i> Kategori *</label>
+                                <select id="feedback-category" name="category" required>
+                                    <option value="">Pilih kategori...</option>
+                                    <option value="produk">Kualitas Produk</option>
+                                    <option value="harga">Harga</option>
+                                    <option value="pelayanan">Pelayanan Karyawan</option>
+                                    <option value="kebersihan">Kebersihan Toko</option>
+                                    <option value="fasilitas">Fasilitas</option>
+                                    <option value="parkir">Parkir</option>
+                                    <option value="online">Layanan Online</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-message"><i class="fas fa-comment-dots"></i> Pesan Anda *</label>
+                                <textarea id="feedback-message" name="message" rows="6" required 
+                                          placeholder="Tulis saran atau kritik membangun Anda di sini... (Minimal 20 karakter)"></textarea>
+                                <div class="char-count">
+                                    <span id="char-counter">0</span>/500 karakter
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-rating"><i class="fas fa-star"></i> Rating Pengalaman</label>
+                                <div class="rating-stars">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2"><i class="fas fa-star"></i></label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="reset" class="btn-secondary">
+                                    <i class="fas fa-redo"></i> Reset Form
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Kirim Feedback
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Testimoni Form -->
+                <div class="tab-content" id="tab-testimoni">
+                    <div class="form-container">
+                        <div class="form-header testimoni-header">
+                            <h2><i class="fas fa-microphone-alt"></i> Bagikan Pengalaman Anda</h2>
+                            <p>Ceritakan pengalaman berbelanja di A-Mart Katapang</p>
+                        </div>
+                        
+                        <form id="testimoni-form" class="testimoni-form">
+                            <div class="testimoni-preview" id="testimoni-preview">
+                                <div class="preview-card">
+                                    <div class="preview-header">
+                                        <div class="preview-avatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="preview-info">
+                                            <h4 id="preview-name">Nama Anda</h4>
+                                            <div class="preview-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span>Baru saja</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="preview-body">
+                                        <p id="preview-text">Testimoni Anda akan muncul di sini...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="testimoni-name"><i class="fas fa-user-circle"></i> Nama *</label>
+                                    <input type="text" id="testimoni-name" name="name" required 
+                                           placeholder="Nama untuk ditampilkan">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="testimoni-role"><i class="fas fa-briefcase"></i> Pekerjaan (Opsional)</label>
+                                    <input type="text" id="testimoni-role" name="role" 
+                                           placeholder="Contoh: Ibu Rumah Tangga, Pelajar, dll">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="testimoni-rating"><i class="fas fa-star"></i> Beri Rating *</label>
+                                <div class="rating-selector">
+                                    <div class="rating-options">
+                                        <div class="rating-option" data-value="1">
+                                            <div class="rating-face">😞</div>
+                                            <span>Sangat Buruk</span>
+                                        </div>
+                                        <div class="rating-option" data-value="2">
+                                            <div class="rating-face">😕</div>
+                                            <span>Buruk</span>
+                                        </div>
+                                        <div class="rating-option" data-value="3">
+                                            <div class="rating-face">😐</div>
+                                            <span>Cukup</span>
+                                        </div>
+                                        <div class="rating-option" data-value="4">
+                                            <div class="rating-face">🙂</div>
+                                            <span>Baik</span>
+                                        </div>
+                                        <div class="rating-option active" data-value="5">
+                                            <div class="rating-face">😊</div>
+                                            <span>Sangat Baik</span>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="testimoni-rating" name="rating" value="5">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="testimoni-message"><i class="fas fa-comment"></i> Testimoni Anda *</label>
+                                <textarea id="testimoni-message" name="message" rows="5" required 
+                                          placeholder="Bagikan pengalaman berbelanja di A-Mart Katapang..."></textarea>
+                                <div class="testimoni-tips">
+                                    <p><i class="fas fa-lightbulb"></i> Tips: Ceritakan produk favorit, pelayanan, atau pengalaman spesial</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-camera"></i> Foto (Opsional)</label>
+                                <div class="upload-area" id="upload-area">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag & drop foto atau <span>browse</span></p>
+                                    <input type="file" id="testimoni-photo" name="photo" accept="image/*" hidden>
+                                    <small>Max. 5MB (JPG, PNG)</small>
+                                </div>
+                                <div class="preview-area" id="preview-area" style="display: none;">
+                                    <img id="photo-preview" src="" alt="Preview">
+                                    <button type="button" class="remove-photo">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="agree-publish" name="agree_publish" required>
+                                <label for="agree-publish">
+                                    Saya setuju testimoni ini ditampilkan di halaman publik A-Mart Katapang
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-share-square"></i> Publikasikan Testimoni
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TAB 3: Donation Form -->
+                <div class="tab-content" id="tab-donation">
+                    <div class="donation-container">
+                        <div class="donation-header">
+                            <h2><i class="fas fa-hands-helping"></i> Berdonasi untuk Kebaikan</h2>
+                            <p>Dukung program sosial dan kemanusiaan A-Mart Katapang</p>
+                        </div>
+                        
+                        <div class="donation-programs">
+                            <h3><i class="fas fa-bullseye"></i> Program Donasi</h3>
+                            <div class="programs-grid">
+                                <div class="program-card" data-program="quran">
+                                    <div class="program-icon">
+                                        <i class="fas fa-quran"></i>
+                                    </div>
+                                    <h4>Waqaf Al-Qur'an</h4>
+                                    <p>Bantu sedekahkan Al-Qur'an ke masjid & mushola</p>
+                                    <div class="program-target">
+                                        <span>Target: 100 Al-Qur'an</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 65%"></div>
+                                        </div>
+                                        <span>65% tercapai</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="program-card" data-program="sembako">
+                                    <div class="program-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <h4>Paket Sembako</h4>
+                                    <p>Bantu keluarga kurang mampu di sekitar Katapang</p>
+                                    <div class="program-target">
+                                        <span>Target: 50 Paket</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 42%"></div>
+                                        </div>
+                                        <span>42% tercapai</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="program-card" data-program="education">
+                                    <div class="program-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <h4>Beasiswa Anak Yatim</h4>
+                                    <p>Dukung pendidikan anak yatim di daerah Katapang</p>
+                                    <div class="program-target">
+                                        <span>Target: 10 Anak</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 30%"></div>
+                                        </div>
+                                        <span>30% tercapai</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="program-card" data-program="disaster">
+                                    <div class="program-icon">
+                                        <i class="fas fa-hands"></i>
+                                    </div>
+                                    <h4>Bantuan Bencana</h4>
+                                    <p>Dana cadangan untuk bantuan bencana alam</p>
+                                    <div class="program-target">
+                                        <span>Dana Terkumpul</span>
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 25%"></div>
+                                        </div>
+                                        <span>Rp 5.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="donation-form" class="donation-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donor-name"><i class="fas fa-user-tag"></i> Nama Donatur *</label>
+                                    <input type="text" id="donor-name" name="name" required 
+                                           placeholder="Nama lengkap donatur">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="donor-email"><i class="fas fa-envelope"></i> Email *</label>
+                                    <input type="email" id="donor-email" name="email" required 
+                                           placeholder="email@anda.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="donor-phone"><i class="fas fa-phone"></i> Nomor WhatsApp *</label>
+                                    <input type="tel" id="donor-phone" name="phone" required 
+                                           placeholder="08xxxxxxxxxx">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="donor-program"><i class="fas fa-project-diagram"></i> Pilih Program *</label>
+                                    <select id="donor-program" name="program" required>
+                                        <option value="">Pilih program donasi...</option>
+                                        <option value="quran">Waqaf Al-Qur'an</option>
+                                        <option value="sembako">Paket Sembako</option>
+                                        <option value="education">Beasiswa Anak Yatim</option>
+                                        <option value="disaster">Bantuan Bencana</option>
+                                        <option value="general">Dana Umum Kebaikan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-money-bill-wave"></i> Jumlah Donasi *</label>
+                                <div class="amount-options">
+                                    <div class="amount-option" data-amount="50000">
+                                        <span>Rp 50.000</span>
+                                    </div>
+                                    <div class="amount-option" data-amount="100000">
+                                        <span>Rp 100.000</span>
+                                    </div>
+                                    <div class="amount-option" data-amount="250000">
+                                        <span>Rp 250.000</span>
+                                    </div>
+                                    <div class="amount-option" data-amount="500000">
+                                        <span>Rp 500.000</span>
+                                    </div>
+                                    <div class="amount-option" data-amount="custom">
+                                        <span>Jumlah Lain</span>
+                                    </div>
+                                </div>
+                                <div class="custom-amount" id="custom-amount" style="display: none;">
+                                    <input type="number" id="donation-amount" name="amount" 
+                                           placeholder="Masukkan jumlah donasi (min. Rp 10.000)" min="10000">
+                                    <span class="currency">Rp</span>
+                                </div>
+                                <input type="hidden" id="selected-amount" name="selected_amount" value="50000">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-university"></i> Metode Pembayaran *</label>
+                                <div class="bank-options">
+                                    <div class="bank-option active" data-bank="mandiri">
+                                        <img src="assets/banks/mandiri.png" alt="Bank Mandiri" 
+                                             onerror="this.src='https://via.placeholder.com/80x40?text=Mandiri'">
+                                        <div class="bank-info">
+                                            <h4>Bank Mandiri</h4>
+                                            <p>123-456-7890</p>
+                                            <p>a.n. A-Mart Katapang</p>
+                                        </div>
+                                    </div>
+                                    <div class="bank-option" data-bank="bca">
+                                        <img src="assets/banks/bca.png" alt="Bank BCA" 
+                                             onerror="this.src='https://via.placeholder.com/80x40?text=BCA'">
+                                        <div class="bank-info">
+                                            <h4>Bank BCA</h4>
+                                            <p>098-765-4321</p>
+                                            <p>a.n. A-Mart Katapang</p>
+                                        </div>
+                                    </div>
+                                    <div class="bank-option" data-bank="bri">
+                                        <img src="assets/banks/bri.png" alt="Bank BRI" 
+                                             onerror="this.src='https://via.placeholder.com/80x40?text=BRI'">
+                                        <div class="bank-info">
+                                            <h4>Bank BRI</h4>
+                                            <p>456-789-0123</p>
+                                            <p>a.n. A-Mart Katapang</p>
+                                        </div>
+                                    </div>
+                                    <div class="bank-option" data-bank="bsi">
+                                        <img src="assets/banks/bsi.png" alt="Bank BSI" 
+                                             onerror="this.src='https://via.placeholder.com/80x40?text=BSI'">
+                                        <div class="bank-info">
+                                            <h4>Bank BSI</h4>
+                                            <p>789-012-3456</p>
+                                            <p>a.n. A-Mart Katapang</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selected-bank" name="bank" value="mandiri">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="donation-message"><i class="fas fa-sticky-note"></i> Pesan/Pengharapan (Opsional)</label>
+                                <textarea id="donation-message" name="message" rows="3" 
+                                          placeholder="Tulis pesan atau pengharapan Anda..."></textarea>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="agree-terms" name="agree_terms" required>
+                                <label for="agree-terms">
+                                    Saya menyetujui bahwa donasi ini bersifat sukarela dan tidak dapat dikembalikan
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="preview-donation">
+                                    <i class="fas fa-eye"></i> Preview Donasi
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-file-invoice"></i> Konfirmasi Donasi
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Donation Instructions -->
+                        <div class="donation-instructions">
+                            <h3><i class="fas fa-list-ol"></i> Cara Berdonasi:</h3>
+                            <ol>
+                                <li>Isi form donasi di atas</li>
+                                <li>Pilih bank transfer (Mandiri, BCA, BRI, BSI)</li>
+                                <li>Transfer ke rekening yang muncul</li>
+                                <li>Upload bukti transfer di WhatsApp</li>
+                                <li>Konfirmasi diterima via email</li>
+                            </ol>
+                            <div class="whatsapp-help">
+                                <i class="fab fa-whatsapp"></i>
+                                <p>Butuh bantuan? WhatsApp: <strong>0812-3456-7890</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Public Testimonies -->
+                <div class="tab-content" id="tab-testimonies">
+                    <div class="testimonies-container">
+                        <div class="testimonies-header">
+                            <h2><i class="fas fa-comments"></i> Testimoni Publik</h2>
+                            <p>Apa kata pelanggan tentang A-Mart Katapang</p>
+                        </div>
+                        
+                        <div class="testimonies-filter">
+                            <button class="filter-btn active" data-filter="all">Semua</button>
+                            <button class="filter-btn" data-filter="5">⭐ 5 Bintang</button>
+                            <button class="filter-btn" data-filter="4">⭐ 4 Bintang</button>
+                            <button class="filter-btn" data-filter="3">⭐ 3 Bintang</button>
+                        </div>
+                        
+                        <div class="testimonies-grid" id="testimonies-grid">
+                            <!-- Testimoni akan dimuat via JavaScript -->
+                            <div class="loading-testimonies">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Memuat testimoni...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonies-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Total Testimoni</h4>
+                                    <p id="total-testimonies">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <h4>Rating Rata-rata</h4>
+                                    <p id="average-rating">0.0</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-thumbs-up"></i>
+                                <div>
+                                    <h4>Testimoni Positif</h4>
+                                    <p id="positive-testimonies">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donation Success Modal -->
+            <div class="modal" id="donation-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-check-circle"></i> Donasi Berhasil!</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                        <!-- Konten akan diisi via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/donation.js"></script>
+    
+    <!-- Google Apps Script URL -->
+    <script>
+        // Konfigurasi Google Sheets
+        const GOOGLE_SHEETS = {
+            feedback: 'https://script.google.com/macros/s/AKfycby.../exec',
+            testimoni: 'https://script.google.com/macros/s/AKfycby.../exec',
+            donation: 'https://script.google.com/macros/s/AKfycby.../exec'
+        };
+    </script>
+</body>
+</html>
